@@ -1,0 +1,10 @@
+#lang racket
+
+(define (numero n)
+	(if (<= n 1)
+		(displayln "hello world")
+		(begin
+			(displayln "hello world")
+			(numero (sub1 n)))))
+
+(numero (read))

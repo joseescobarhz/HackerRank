@@ -1,0 +1,9 @@
+#lang racket
+
+
+(define a (read))
+    (for ([i (in-range 1 100)])
+         (define b (read))
+         (if (< b a)
+         (displayln b)
+          "not"))

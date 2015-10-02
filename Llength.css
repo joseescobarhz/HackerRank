@@ -1,0 +1,13 @@
+#lang racket
+; Enter your code here. Read input from STDIN. Print output to STDOUT
+
+(define (f lst)
+  (length lst))
+
+(define (read-list)
+  (let ([x (read)]) 
+    (if (eof-object? x)
+      (list)
+      (cons x (read-list)))))
+
+(display (f (read-list)))

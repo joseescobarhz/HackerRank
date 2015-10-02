@@ -1,0 +1,14 @@
+#lang racket
+
+(define (get-inputs-from-stdin)
+  (filter (lambda (x) x)
+    (map string->number (sequence->list (port->lines (current-input-port))))))
+
+(define inputs (get-inputs-from-stdin))
+
+(define (sum-of-odd-elements inputs)
+  (foldl + 0 (filter odd? inputs)))
+  
+(define output (sum-of-odd-elements inputs))
+
+(display output)

@@ -1,0 +1,11 @@
+#lang racket
+
+(define (f n)
+  (
+   ;;complete this function.
+   build-list n values
+   )
+  )
+
+(define n (string->number (read-line (current-input-port) 'any)))
+(print (length(f n)))

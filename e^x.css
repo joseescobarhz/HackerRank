@@ -1,0 +1,19 @@
+#lang racket
+(require math/number-theory)
+
+(define e 2.7182818284)
+
+(define (exp a n)
+  (if (= n 0) 1
+      (* a (exp a (- n 1)))))
+
+(define (etox x)
+  (+ 1
+     (for/sum
+         ([i (in-range 1 10)])
+       (/ (exp x i) (factorial i)))))
+
+(define total-cases (read))
+
+(for ([i (in-range total-cases)])
+  (printf "~a\n" (rationalize (etox (read)) 0.00001)))

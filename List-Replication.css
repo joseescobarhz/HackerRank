@@ -1,0 +1,13 @@
+#lang racket
+L
+(define (read-list)
+  (let ([x (read)])
+    (if (eof-object? x)
+        (list)
+        (cons x (read-list)))))
+
+
+(let ([x (read)]
+      [lst (read-list)])
+  (for ([i (in-list lst)])
+       (for ([j (in-range x)]) (printf "~a\n" i))))

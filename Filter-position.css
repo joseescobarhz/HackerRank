@@ -1,0 +1,27 @@
+#lang racket
+
+(define (read-list [n (read)])
+   (cond [(eof-object? n) empty]
+    [else (cons n (read-list))]))
+
+(define (print-list lst)
+  (cond ((not (null? lst))
+         (display (car lst))
+         (newline)
+         (print-list (cdr lst)))))
+
+(define (throw-odd-indices lst)
+  (cond ((null? lst)
+         '())
+        ((null? (cdr lst))
+         (cons (car lst) '()))
+        (else
+         (cons (car lst)
+               (throw-odd-indices (cdr (cdr lst)))))))
+
+(define (solve lst)
+  (throw-odd-indices lst)) 
+
+(let ((lst (cons 0 (read-list))))
+  (let ((ans (solve lst)))
+    (print-list (cdr ans))))
